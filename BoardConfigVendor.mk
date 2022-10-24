@@ -1,25 +1,10 @@
 #
-# Automatically generated file. DO NOT MODIFY
+# Copyright (C) 2022 The PixelExperience Project
+#
+# SPDX-License-Identifier: Apache-2.0
 #
 
+FIRMWARE_IMAGES := $(wildcard vendor/oneplus/firmware/$(PRODUCT_DEVICE)/*)
+
 AB_OTA_PARTITIONS += \
-    abl \
-    aop \
-    bluetooth \
-    cmnlib \
-    cmnlib64 \
-    devcfg \
-    dsp \
-    featenabler \
-    hyp \
-    imagefv \
-    keymaster \
-    logo \
-    modem \
-    multiimgoem \
-    qupfw \
-    storsec \
-    tz \
-    uefisecapp \
-    xbl \
-    xbl_config
+    $(foreach f, $(notdir $(FIRMWARE_IMAGES)), $(basename $(f)))
